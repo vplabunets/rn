@@ -6,10 +6,10 @@ const config: ExpoConfig = {
   slug: 'rn',
   version: '1.0.0',
   orientation: 'portrait',
-  icon: '/src/assets/coffee-bean-icon.png',
+  icon: '/assets/coffee-bean-icon.png',
   userInterfaceStyle: 'light',
   splash: {
-    image: '/src/assets/coffee-bean-icon.png',
+    image: '/assets/coffee-bean-icon.png',
     resizeMode: 'contain',
     backgroundColor: '#ffffff',
   },
@@ -21,12 +21,12 @@ const config: ExpoConfig = {
   },
   android: {
     adaptiveIcon: {
-      foregroundImage: '/src/assets/coffee-bean-icon.png',
+      foregroundImage: '/assets/coffee-bean-icon.png',
       backgroundColor: '#ffffff',
     },
   },
   web: {
-    favicon: '/src/assets/coffee-bean-icon.png',
+    favicon: '/assets/coffee-bean-icon.png',
   },
   experiments: {
     tsconfigPaths: true,
