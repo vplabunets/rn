@@ -24,10 +24,9 @@ const styles = StyleSheet.create({
   button: {
     height: 32,
     width: 32,
-    // padding: 8,
     backgroundColor: GlobalStyles.colors.accentColor,
     elevation: 2,
-    shadowColor: 'black',
+    shadowColor: GlobalStyles.colors.mainTextColor,
     shadowOpacity: 0.15,
     shadowOffset: { width: 1, height: 1 },
     shadowRadius: 2,
