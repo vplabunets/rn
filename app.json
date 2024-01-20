@@ -4,7 +4,7 @@
     "slug": "rn",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "/assets/coffee-bean-icon.png",
+    "icon": "/assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "/assets/coffee-bean-icon.png",

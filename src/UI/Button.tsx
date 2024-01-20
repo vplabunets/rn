@@ -1,17 +1,14 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { GlobalStyles } from '../constants/styles';
+import { ButtonProps } from '@/types/types';
 
-interface ButtonProps {
-  onPress: () => void;
-  children: React.ReactNode;
-}
-
-const Button: React.FC<ButtonProps> = ({ onPress, children }) => {
+const Button: React.FC<ButtonProps> = ({ onPress, children, ...rest }) => {
   return (
     <Pressable
       style={({ pressed }) => [styles.button, pressed && styles.pressed]}
       onPress={onPress}
+      {...rest}
     >
       <Text style={styles.text}>{children}</Text>
     </Pressable>

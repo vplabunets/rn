@@ -15,6 +15,7 @@ const ModalWindow: React.FC<ModalProps> = ({ handleModal, modalVisible }) => {
   const closeModal = () => {
     handleModal(!modalVisible);
   };
+
   return (
     <View style={styles.modalContainer}>
       <Modal
@@ -23,7 +24,7 @@ const ModalWindow: React.FC<ModalProps> = ({ handleModal, modalVisible }) => {
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
-          handleModal(!modalVisible);
+          closeModal();
         }}
       >
         <TouchableWithoutFeedback onPress={closeModal}>

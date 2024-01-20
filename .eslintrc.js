@@ -1,4 +1,4 @@
-// module.exports = {
-//   root: true,
-//   extends: ["universe/native"],
-// };
+module.exports = {
+  root: true,
+  extends: ['universe/native'],
+};

@@ -23,6 +23,10 @@ function PressableCard({ item }: { item: Item }): React.JSX.Element {
   const [isFavorite, setIsFavorite] = useState(false);
   const { title, description, price, rating, url, feature } = item;
 
+  function handleIsFavorite() {
+    setIsFavorite(!isFavorite);
+  }
+
   return (
     <View style={styles.container}>
       <Pressable
@@ -30,15 +34,12 @@ function PressableCard({ item }: { item: Item }): React.JSX.Element {
           styles.button,
           pressed ? styles.buttonPressed : null,
         ]}
-        android_ripple={{ color: GlobalStyles.colors.lightAccentColor }}
+        android_ripple={styles.ripple}
       >
         <View style={styles.imageContainer}>
           <View style={styles.ratingContainer}>
             <View>
-              <Star
-                onPress={() => setIsFavorite(!isFavorite)}
-                isFavorite={isFavorite}
-              />
+              <Star onPress={handleIsFavorite} isFavorite={isFavorite} />
             </View>
             <View style={styles.ratingTextContainer}>
               <Text style={styles.ratingText}>{rating}</Text>
@@ -46,9 +47,7 @@ function PressableCard({ item }: { item: Item }): React.JSX.Element {
           </View>
           {feature === 'new' && (
             <View style={styles.featureContainer}>
-              {/* <View style={styles.featureTextContainer}> */}
               <Text style={styles.ratingText}>{feature}</Text>
-              {/* </View> */}
             </View>
           )}
 
@@ -93,6 +92,9 @@ const styles = StyleSheet.create({
   },
   buttonPressed: {
     opacity: 0.5,
+  },
+  ripple: {
+    color: GlobalStyles.colors.lightAccentColor,
   },
   imageContainer: {
     marginTop: 10,

@@ -1,3 +1,5 @@
+export type Icon = 'heart' | 'search-sharp';
+
 export type Item = {
   id: number;
   title: string;
@@ -16,4 +18,13 @@ export interface FormProps {
 export interface ModalProps {
   handleModal: React.Dispatch<React.SetStateAction<boolean>>;
   modalVisible: boolean;
+}
+export interface ButtonProps {
+  onPress: () => void;
+  children: React.ReactNode;
+}
+export interface IconButtonProps {
+  icon: string;
+  color: string;
+  onPress: () => void;
 }

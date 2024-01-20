@@ -17,11 +17,17 @@ const Form: React.FC<FormProps> = ({
   useEffect(() => {
     handleFilteredItems(text, isChecked);
   }, [text, isChecked]);
+  function handleModalVisible() {
+    handleModal(!modalVisible);
+  }
 
   function handleIsChecked() {
     setIsChecked(!isChecked);
   }
 
+  function handleIsShownInput() {
+    setIsShownInput(!isShownInput);
+  }
   return (
     <View style={styles.formContainer}>
       {isShownInput && (
@@ -51,12 +57,12 @@ const Form: React.FC<FormProps> = ({
         <IconButton
           icon="heart"
           color={GlobalStyles.colors.accentColor}
-          onPress={() => handleModal(!modalVisible)}
+          onPress={handleModalVisible}
         />
 
         <IconButton
           icon="search-sharp"
-          onPress={() => setIsShownInput(!isShownInput)}
+          onPress={handleIsShownInput}
           color={GlobalStyles.colors.mainTextColor}
         />
       </View>
