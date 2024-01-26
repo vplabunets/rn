@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardsList from '@/components/CardsList';
 import Form from '@/components/Form';
 import ModalWindow from '@/components/ModalWindow';
-import { coffeeItemsData1 } from '@/data/data';
-import { coffeeItemsData2 } from '@/data/data';
+import { teaItemsData } from '@/data/data';
 import { View, StyleSheet } from 'react-native';
 
-function MainScreen() {
+function TeaScreen() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [comingItems, setItems] = useState(coffeeItemsData1);
-  const [filteredItems, setFilteredItems] = useState(coffeeItemsData1);
+  const [filteredItems, setFilteredItems] = useState(teaItemsData);
+  const [comingItems, setItems] = useState(teaItemsData);
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
@@ -19,7 +18,7 @@ function MainScreen() {
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
-      setItems(prevItems => [...prevItems, ...coffeeItemsData2]);
+      setItems(prevItems => [...prevItems, ...teaItemsData]);
       setRefreshing(false);
     }, 1000);
   };
@@ -34,6 +33,7 @@ function MainScreen() {
       setFilteredItems(comingItems.filter(item => item.title.toLocaleLowerCase().includes(query.toLowerCase())));
     }
   }
+
   return (
     <View style={styles.container}>
       <Form handleModal={setModalVisible} modalVisible={modalVisible} handleFilteredItems={handleFilteredItems} />
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainScreen;
+export default TeaScreen;

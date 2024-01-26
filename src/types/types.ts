@@ -28,3 +28,15 @@ export interface IconButtonProps {
   color: string;
   onPress: () => void;
 }
+
+export type SliderProps = {
+  promo: {
+    id: number;
+    image: string;
+  }[];
+};
+
+export interface SlideData {
+  id: number;
+  image: string;
+}

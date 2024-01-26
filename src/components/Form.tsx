@@ -5,11 +5,7 @@ import IconButton from '@/UI/IconButton';
 import { GlobalStyles } from '@/constants/styles';
 import { FormProps } from '@/types/types';
 
-const Form: React.FC<FormProps> = ({
-  handleModal,
-  modalVisible,
-  handleFilteredItems,
-}) => {
+const Form: React.FC<FormProps> = ({ handleModal, modalVisible, handleFilteredItems }) => {
   const [text, onChangeText] = useState('');
   const [isShownInput, setIsShownInput] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -32,39 +28,22 @@ const Form: React.FC<FormProps> = ({
     <View style={styles.formContainer}>
       {isShownInput && (
         <View style={styles.container}>
-          <TextInput
-            style={styles.textInput}
-            onChangeText={onChangeText}
-            value={text}
-            placeholder="Search..."
-          />
+          <TextInput style={styles.textInput} onChangeText={onChangeText} value={text} placeholder="Search..." />
           <View style={styles.checkboxContainer}>
             <Checkbox
               style={styles.checkbox}
               value={isChecked}
               onValueChange={handleIsChecked}
-              color={
-                isChecked
-                  ? GlobalStyles.colors.accentColor
-                  : GlobalStyles.colors.lightAccentColor
-              }
+              color={isChecked ? GlobalStyles.colors.accentColor : GlobalStyles.colors.lightAccentColor}
             />
             <Text style={styles.paragraph}>New only</Text>
           </View>
         </View>
       )}
       <View style={styles.buttonsContainer}>
-        <IconButton
-          icon="heart"
-          color={GlobalStyles.colors.accentColor}
-          onPress={handleModalVisible}
-        />
+        <IconButton icon="heart" color={GlobalStyles.colors.accentColor} onPress={handleModalVisible} />
 
-        <IconButton
-          icon="search-sharp"
-          onPress={handleIsShownInput}
-          color={GlobalStyles.colors.mainTextColor}
-        />
+        <IconButton icon="search-sharp" onPress={handleIsShownInput} color={GlobalStyles.colors.mainTextColor} />
       </View>
     </View>
   );
@@ -75,7 +54,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 80,
     width: '100%',
-    paddingVertical: 4,
     paddingHorizontal: 24,
     justifyContent: 'flex-end',
     alignItems: 'center',

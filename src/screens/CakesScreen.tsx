@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CardsList from '@/components/CardsList';
 import Form from '@/components/Form';
 import ModalWindow from '@/components/ModalWindow';
-import { coffeeItemsData1 } from '@/data/data';
-import { coffeeItemsData2 } from '@/data/data';
+import { cakeItemsData } from '@/data/data';
 import { View, StyleSheet } from 'react-native';
 
-function MainScreen() {
+function CakesScreen() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [comingItems, setItems] = useState(coffeeItemsData1);
-  const [filteredItems, setFilteredItems] = useState(coffeeItemsData1);
+  const [filteredItems, setFilteredItems] = useState(cakeItemsData);
+  const [comingItems, setItems] = useState(cakeItemsData);
   const [refreshing, setRefreshing] = useState(false);
-
-  useEffect(() => {
-    setFilteredItems(comingItems);
-  }, [comingItems]);
 
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
-      setItems(prevItems => [...prevItems, ...coffeeItemsData2]);
+      setItems(prevItems => [...prevItems, ...cakeItemsData]);
       setRefreshing(false);
     }, 1000);
   };
@@ -50,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainScreen;
+export default CakesScreen;
