@@ -1,6 +1,6 @@
 import { Item } from '@/types/types';
 
-export const ItemData: Item[] = [
+export const coffeeItemsData1: Item[] = [
   {
     id: 1,
     title: 'Cappuccino',
@@ -37,6 +37,9 @@ export const ItemData: Item[] = [
     rating: 4.2,
     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Espresso_Americano.jpeg/2560px-Espresso_Americano.jpeg',
   },
+];
+
+export const coffeeItemsData2: Item[] = [
   {
     id: 5,
     title: 'Mocha',
@@ -92,4 +95,199 @@ export const ItemData: Item[] = [
     rating: 4.5,
     url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Blue_Bottle%2C_Kyoto_Style_Ice_Coffee_%285909775445%29.jpg/1920px-Blue_Bottle%2C_Kyoto_Style_Ice_Coffee_%285909775445%29.jpg',
   },
+];
+
+export const teaItemsData: Item[] = [
+  {
+    id: 1,
+    title: 'Green Tea',
+    description: 'Light and refreshing',
+    feature: 'standard',
+    price: 2.5,
+    rating: 4.2,
+    url: 'https://images.unsplash.com/photo-1498481548071-4d439c62cd6e?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 2,
+    title: 'Black Tea',
+    description: 'Rich and bold',
+    feature: 'standard',
+    price: 3.0,
+    rating: 4.5,
+    url: 'https://images.unsplash.com/photo-1562547256-2c5ee93b60b7?q=80&w=2682&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 3,
+    title: 'Chamomile Tea',
+    description: 'Calming and soothing',
+    feature: 'standard',
+    price: 2.8,
+    rating: 4.7,
+    url: 'https://images.unsplash.com/photo-1467164616789-ce7ae65ab4c9?q=80&w=1824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 4,
+    title: 'Oolong Tea',
+    description: 'Partially oxidized',
+    feature: 'standard',
+    price: 3.0,
+    rating: 4.3,
+    url: 'https://images.unsplash.com/photo-1567922045116-2a00fae2ed03?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 5,
+    title: 'Earl Grey',
+    description: 'Black tea with bergamot flavor',
+    feature: 'new',
+    price: 4.0,
+    rating: 4.8,
+    url: 'https://images.unsplash.com/photo-1563911892317-47551470aed8?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 6,
+    title: 'Peppermint Tea',
+    description: 'Refreshing and minty',
+    feature: 'standard',
+    price: 2.7,
+    rating: 4.6,
+    url: 'https://images.unsplash.com/photo-1596507275836-bc5fe58bfd08?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 7,
+    title: 'Jasmine Tea',
+    description: 'Scented with jasmine flowers',
+    feature: 'standard',
+    price: 3.2,
+    rating: 4.5,
+    url: 'https://images.unsplash.com/photo-1630558206910-de9c9958d6ee?q=80&w=2374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 8,
+    title: 'White Tea',
+    description: 'Least processed tea',
+    feature: 'standard',
+    price: 3.5,
+    rating: 4.4,
+    url: 'https://images.unsplash.com/photo-1611781983421-b0d99ee5fcab?q=80&w=1823&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 9,
+    title: 'Rooibos Tea',
+    description: 'Caffeine-free and fruity',
+    feature: 'standard',
+    price: 3.0,
+    rating: 4.0,
+    url: 'https://images.unsplash.com/photo-1597916374805-77c812a72447?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 10,
+    title: 'Iced Tea',
+    description: 'Chilled and sweetened',
+    feature: 'new',
+    price: 3.0,
+    rating: 4.2,
+    url: 'https://images.unsplash.com/photo-1599390720183-fdacb8216b90?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+];
+
+export const cakeItemsData: Item[] = [
+  {
+    id: 1,
+    title: 'Chocolate Cake',
+    description: 'Rich and decadent chocolate cake',
+    feature: 'standard',
+    price: 5.0, // Increased price for cakes
+    rating: 4.5,
+    url: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 2,
+    title: 'Strawberry Cake',
+    description: 'Delicious strawberry shortcake',
+    feature: 'standard',
+    price: 6.0, // Increased price for cakes
+    rating: 4.7,
+    url: 'https://images.unsplash.com/photo-1558234469-50fc184d1cc9?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 3,
+    title: 'Red Velvet Cake',
+    description: 'Classic red velvet cake with cream cheese frosting',
+    feature: 'standard',
+    price: 7.0, // Increased price for cakes
+    rating: 4.8,
+    url: 'https://images.unsplash.com/photo-1614707269211-474b2510b3ad?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 4,
+    title: 'Carrot Cake',
+    description: 'Moist carrot cake with cream cheese frosting',
+    feature: 'standard',
+    price: 6.5, // Increased price for cakes
+    rating: 4.6,
+    url: 'https://images.unsplash.com/photo-1594741920744-0a7f4a65817a?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 5,
+    title: 'Vanilla Cake',
+    description: 'Classic vanilla cake with buttercream frosting',
+    feature: 'new',
+    price: 5.5, // Increased price for cakes
+    rating: 4.9,
+    url: 'https://images.unsplash.com/photo-1536599524557-5f784dd53282?q=80&w=2304&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 6,
+    title: 'Blueberry Cake',
+    description: 'Refreshing lemon blueberry cake',
+    feature: 'standard',
+    price: 7.5, // Increased price for cakes
+    rating: 4.7,
+    url: 'https://images.unsplash.com/photo-1567327613485-fbc7bf196198?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 7,
+    title: 'Marble Cake',
+    description: 'Classic marble cake with swirls of chocolate and vanilla',
+    feature: 'standard',
+    price: 6.0, // Increased price for cakes
+    rating: 4.5,
+    url: 'https://images.unsplash.com/photo-1606702670929-51ef9685a656?q=80&w=2426&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 8,
+    title: 'Coconut Cake',
+    description: 'Fluffy coconut cake with coconut cream frosting',
+    feature: 'standard',
+    price: 8.0, // Increased price for cakes
+    rating: 4.8,
+    url: 'https://images.unsplash.com/photo-1622278326114-159fdbd7f36b?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 9,
+    title: 'Pumpkin Cake',
+    description: 'Spiced pumpkin cake with cream cheese frosting',
+    feature: 'standard',
+    price: 7.5, // Increased price for cakes
+    rating: 4.4,
+    url: 'https://images.unsplash.com/photo-1702745100328-fe7a353d11e9?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 10,
+    title: 'Mango Cake',
+    description: 'Exotic mango and coconut-flavored cake',
+    feature: 'new',
+    price: 8.5, // Increased price for cakes
+    rating: 4.6,
+    url: 'https://images.unsplash.com/photo-1549876919-88b8fa42ac7e?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+];
+export const promo = [
+  { id: 1, image: require('../assets/promotion/muffins.jpg') },
+  { id: 2, image: require('../assets/promotion/cake.jpg') },
+  { id: 3, image: require('../assets/promotion/coffee-house-sale.jpeg') },
+  { id: 4, image: require('../assets/promotion/bubble-milk-tea.png') },
+  { id: 5, image: require('../assets/promotion/free-drink.jpg') },
+  { id: 6, image: require('../assets/promotion/herbal-tea.jpg') },
+  { id: 7, image: require('../assets/promotion/special-offer.jpg') },
 ];
