@@ -5,9 +5,17 @@ import ModalWindow from '@/components/ModalWindow';
 import { coffeeItemsData1 } from '@/data/data';
 import { coffeeItemsData2 } from '@/data/data';
 import { View, StyleSheet } from 'react-native';
-//@ts-ignore
 
-function MainScreen({ navigation }) {
+import { StackNavigationProp } from '@react-navigation/stack';
+import { Item, RootStackParamList } from '@/types/types';
+
+type DefaultScreenNavigationProp = StackNavigationProp<RootStackParamList, 'CoffeeInfo'>;
+
+interface DefaultScreenProps {
+  navigation: DefaultScreenNavigationProp;
+}
+
+function DefaultScreen({ navigation }: DefaultScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
   const [comingItems, setItems] = useState(coffeeItemsData1);
   const [filteredItems, setFilteredItems] = useState(coffeeItemsData1);
@@ -17,10 +25,8 @@ function MainScreen({ navigation }) {
     setFilteredItems(comingItems);
   }, [comingItems]);
 
-  //@ts-ignore
-  const onPressItem = item => {
-    // Додайте обробник натискань
-    navigation.navigate('CakeInfo', { item }); // Передайте дані про елемент CakeInfo через навігацію
+  const onPressItem = (item: Item) => {
+    navigation.navigate('CakeInfo', { item });
   };
   const handleRefresh = () => {
     setRefreshing(true);
@@ -61,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainScreen;
+export default DefaultScreen;

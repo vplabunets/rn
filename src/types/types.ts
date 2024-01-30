@@ -47,6 +47,4 @@ export type RootStackParamList = {
   CakeInfo: { item: Item };
   CoffeeInfo: { item: Item };
   TeaInfo: { item: Item };
-
-  // Додайте інші екрани вашого стеку тут...
 };

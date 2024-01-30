@@ -4,7 +4,6 @@ import { GlobalStyles } from '../constants/styles';
 import Star from '../UI/Star';
 import Button from '../UI/Button';
 import { Item } from '@/types/types';
-import { useNavigation } from '@react-navigation/native';
 
 function convertToUSD(initialNumber: number) {
   return initialNumber.toLocaleString('en-US', {
@@ -13,7 +12,7 @@ function convertToUSD(initialNumber: number) {
   });
 }
 //@ts-ignore
-function PressableCard({ item, onPress }: { item: Item; onPress: () => void }): React.JSX.Element {
+function PressableCard({ item, onPress }: { item: Item; onPress: (xxx: Item) => void }): React.JSX.Element {
   const [isFavorite, setIsFavorite] = useState(false);
   const { title, description, price, rating, url, feature } = item;
 

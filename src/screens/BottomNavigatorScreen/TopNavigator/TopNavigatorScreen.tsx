@@ -1,12 +1,12 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MainScreen from '../MainScreen';
-import CoffeeInfo from '@/components/CoffeeInfo';
-import TeaScreen from '../TeaScreen';
-import TeaInfo from '@/components/TeaInfo';
-import CakesScreen from '../CakesScreen';
-import CakeInfo from '@/components/CakeInfo';
+import CoffeeInfo from '@/components/ItemCards/CoffeeInfo';
+import TeaScreen from './TeaScreen';
+import CakesScreen from './CakesScreen';
+import CakeInfo from '@/components/ItemCards/CakeInfo';
 import { GlobalStyles } from '@/constants/styles';
+import DefaultScreen from './DefaultScreen';
+import TeaInfo from '@/components/ItemCards/TeaInfo';
 
 const TopTab = createMaterialTopTabNavigator();
 const NestedScreen = createNativeStackNavigator();
@@ -21,7 +21,7 @@ export const CoffeeNestedScreen: React.FC = () => {
     >
       <NestedScreen.Screen
         name="CoffeeScreen"
-        component={MainScreen}
+        component={DefaultScreen}
         options={{
           headerShown: false,
         }}
@@ -52,11 +52,12 @@ export const TeaNestedScreen: React.FC = () => {
         title="TeaScreen"
         component={TeaScreen}
         options={{
+          presentation: 'modal',
           headerShown: false,
         }}
       />
       <NestedScreen.Screen
-        options={{ headerShown: false }}
+        options={{ headerShown: false, presentation: 'card' }}
         name="TeaInfo"
         //@ts-ignore
         component={TeaInfo}

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const AuthStack = createNativeStackNavigator();
 
@@ -9,8 +8,8 @@ export const useRoute = (isAuth: boolean) => {
   if (!isAuth) {
     return (
       <AuthStack.Navigator initialRouteName="LoginScreen">
-        <AuthStack.Screen options={{ headerShown: false }} name="RegScreen" component={RegistrationScreen} />
-        <AuthStack.Screen options={{ headerShown: false }} name="LogScreen" component={LoginScreen} />
+        <AuthStack.Screen options={{ headerShown: false }} name="RegScreen" component={TeaScreen} />
+        <AuthStack.Screen options={{ headerShown: false }} name="LogScreen" component={SettingsScreen} />
       </AuthStack.Navigator>
     );
   }
@@ -22,6 +21,9 @@ export const useRoute = (isAuth: boolean) => {
 };
 
 import { StyleSheet } from 'react-native';
+import Home from '@/screens/Home';
+import TeaScreen from '@/screens/BottomNavigatorScreen/TopNavigator/TeaScreen';
+import SettingsScreen from '@/screens/BottomNavigatorScreen/SettingsScreen';
 
 export const styles = StyleSheet.create({
   tabContainer: {

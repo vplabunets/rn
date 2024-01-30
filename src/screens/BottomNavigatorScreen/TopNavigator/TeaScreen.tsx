@@ -1,26 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardsList from '@/components/CardsList';
 import Form from '@/components/Form';
 import ModalWindow from '@/components/ModalWindow';
-import { cakeItemsData } from '@/data/data';
+import { teaItemsData } from '@/data/data';
 import { View, StyleSheet } from 'react-native';
 
-// @ts-ignore
-function CakesScreen({ navigation }) {
+import { StackNavigationProp } from '@react-navigation/stack';
+import { Item, RootStackParamList } from '@/types/types';
+
+type TeaScreenNavigationProp = StackNavigationProp<RootStackParamList, 'TeaInfo'>;
+
+interface TeaScreenProps {
+  navigation: TeaScreenNavigationProp;
+}
+function TeaScreen({ navigation }: TeaScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [filteredItems, setFilteredItems] = useState(cakeItemsData);
-  const [comingItems, setItems] = useState(cakeItemsData);
+  const [filteredItems, setFilteredItems] = useState(teaItemsData);
+  const [comingItems, setItems] = useState(teaItemsData);
   const [refreshing, setRefreshing] = useState(false);
 
-  //@ts-ignore
+  useEffect(() => {
+    setFilteredItems(comingItems);
+  }, [comingItems]);
 
-  const onPressItem = item => {
-    navigation.navigate('CakeInfo', { item }); // Передайте дані про елемент CakeInfo через навігацію
+  const onPressItem = (item: Item) => {
+    navigation.navigate('CakeInfo', { item });
   };
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
-      setItems(prevItems => [...prevItems, ...cakeItemsData]);
+      setItems(prevItems => [...prevItems, ...teaItemsData]);
       setRefreshing(false);
     }, 1000);
   };
@@ -35,6 +44,7 @@ function CakesScreen({ navigation }) {
       setFilteredItems(comingItems.filter(item => item.title.toLocaleLowerCase().includes(query.toLowerCase())));
     }
   }
+
   return (
     <View style={styles.container}>
       <Form handleModal={setModalVisible} modalVisible={modalVisible} handleFilteredItems={handleFilteredItems} />
@@ -56,4 +66,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CakesScreen;
+export default TeaScreen;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, Platform, Button } from 'react-native';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { GlobalStyles } from '@/constants/styles';
-import Star from '../UI/Star';
+import Star from '../../UI/Star';
 import { RootStackParamList } from '@/types/types';
 
 type CakeInfoNavigationProp = NavigationProp<RootStackParamList, 'CakeInfo'>;
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
   },
   imageContainer: {
-    height: 360,
+    height: 340,
   },
   image: {
     flex: 1,
