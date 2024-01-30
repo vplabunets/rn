@@ -5,7 +5,8 @@ import ModalWindow from '@/components/ModalWindow';
 import { teaItemsData } from '@/data/data';
 import { View, StyleSheet } from 'react-native';
 
-function TeaScreen() {
+// @ts-ignore
+function TeaScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [filteredItems, setFilteredItems] = useState(teaItemsData);
   const [comingItems, setItems] = useState(teaItemsData);
@@ -15,6 +16,11 @@ function TeaScreen() {
     setFilteredItems(comingItems);
   }, [comingItems]);
 
+  //@ts-ignore
+  const onPressItem = item => {
+    // Додайте обробник натискань
+    navigation.navigate('CakeInfo', { item }); // Передайте дані про елемент CakeInfo через навігацію
+  };
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
@@ -37,7 +43,12 @@ function TeaScreen() {
   return (
     <View style={styles.container}>
       <Form handleModal={setModalVisible} modalVisible={modalVisible} handleFilteredItems={handleFilteredItems} />
-      <CardsList items={filteredItems} refreshing={refreshing} handleRefresh={handleRefresh} />
+      <CardsList
+        items={filteredItems}
+        refreshing={refreshing}
+        handleRefresh={handleRefresh}
+        onPressItem={onPressItem}
+      />
       <ModalWindow handleModal={setModalVisible} modalVisible={modalVisible} />
     </View>
   );

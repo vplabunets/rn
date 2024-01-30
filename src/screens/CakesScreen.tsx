@@ -5,12 +5,18 @@ import ModalWindow from '@/components/ModalWindow';
 import { cakeItemsData } from '@/data/data';
 import { View, StyleSheet } from 'react-native';
 
-function CakesScreen() {
+// @ts-ignore
+function CakesScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [filteredItems, setFilteredItems] = useState(cakeItemsData);
   const [comingItems, setItems] = useState(cakeItemsData);
   const [refreshing, setRefreshing] = useState(false);
 
+  //@ts-ignore
+
+  const onPressItem = item => {
+    navigation.navigate('CakeInfo', { item }); // Передайте дані про елемент CakeInfo через навігацію
+  };
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
@@ -32,7 +38,12 @@ function CakesScreen() {
   return (
     <View style={styles.container}>
       <Form handleModal={setModalVisible} modalVisible={modalVisible} handleFilteredItems={handleFilteredItems} />
-      <CardsList items={filteredItems} refreshing={refreshing} handleRefresh={handleRefresh} />
+      <CardsList
+        items={filteredItems}
+        refreshing={refreshing}
+        handleRefresh={handleRefresh}
+        onPressItem={onPressItem}
+      />
       <ModalWindow handleModal={setModalVisible} modalVisible={modalVisible} />
     </View>
   );
