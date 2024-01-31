@@ -8,6 +8,9 @@ export type Item = {
   price: number;
   rating: number;
   url: string;
+  fullDescription: string;
+  calories: number;
+  composition: string;
 };
 
 export interface FormProps {
@@ -40,3 +43,8 @@ export interface SlideData {
   id: number;
   image: string;
 }
+export type RootStackParamList = {
+  CakeInfo: { item: Item };
+  CoffeeInfo: { item: Item };
+  TeaInfo: { item: Item };
+};

@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Image,
-  StyleSheet,
-  View,
-  Text,
-  Pressable,
-  Platform,
-} from 'react-native';
+import { Image, StyleSheet, View, Text, Pressable, Platform } from 'react-native';
 import { GlobalStyles } from '../constants/styles';
 import Star from '../UI/Star';
 import Button from '../UI/Button';
@@ -18,8 +11,8 @@ function convertToUSD(initialNumber: number) {
     currency: 'USD',
   });
 }
-
-function PressableCard({ item }: { item: Item }): React.JSX.Element {
+//@ts-ignore
+function PressableCard({ item, onPress }: { item: Item; onPress: (xxx: Item) => void }): React.JSX.Element {
   const [isFavorite, setIsFavorite] = useState(false);
   const { title, description, price, rating, url, feature } = item;
 
@@ -30,11 +23,9 @@ function PressableCard({ item }: { item: Item }): React.JSX.Element {
   return (
     <View style={styles.container}>
       <Pressable
-        style={({ pressed }) => [
-          styles.button,
-          pressed ? styles.buttonPressed : null,
-        ]}
+        style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]}
         android_ripple={styles.ripple}
+        onPress={() => onPress(item)}
       >
         <View style={styles.imageContainer}>
           <View style={styles.ratingContainer}>
@@ -65,7 +56,7 @@ function PressableCard({ item }: { item: Item }): React.JSX.Element {
         </View>
         <View style={styles.priceContainer}>
           <Text style={styles.price}>{convertToUSD(price)}</Text>
-          <Button onPress={() => console.log('Hello')}>+</Button>
+          <Button onPress={() => console.log('hello')}>+</Button>
         </View>
       </Pressable>
     </View>
