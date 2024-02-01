@@ -137,7 +137,7 @@ export const coffeeItemsData2: Item[] = [
 
 export const teaItemsData: Item[] = [
   {
-    id: 1,
+    id: 11,
     title: 'Green Tea',
     description: 'Light and refreshing',
     feature: 'standard',
@@ -150,7 +150,7 @@ export const teaItemsData: Item[] = [
     composition: 'Camellia sinensis leaves, water',
   },
   {
-    id: 2,
+    id: 12,
     title: 'Black Tea',
     description: 'Rich and bold',
     feature: 'standard',
@@ -163,7 +163,7 @@ export const teaItemsData: Item[] = [
     composition: 'Camellia sinensis leaves, water',
   },
   {
-    id: 3,
+    id: 13,
     title: 'Chamomile Tea',
     description: 'Calming and soothing',
     feature: 'standard',
@@ -176,7 +176,7 @@ export const teaItemsData: Item[] = [
     composition: 'Dried chamomile flowers, water',
   },
   {
-    id: 4,
+    id: 14,
     title: 'Oolong Tea',
     description: 'Partially oxidized',
     feature: 'standard',
@@ -189,7 +189,7 @@ export const teaItemsData: Item[] = [
     composition: 'Camellia sinensis leaves, water',
   },
   {
-    id: 5,
+    id: 15,
     title: 'Earl Grey',
     description: 'Black tea with bergamot flavor',
     feature: 'new',
@@ -202,7 +202,7 @@ export const teaItemsData: Item[] = [
     composition: 'Black tea leaves, bergamot flavoring, water',
   },
   {
-    id: 6,
+    id: 16,
     title: 'Peppermint Tea',
     description: 'Refreshing and minty',
     feature: 'standard',
@@ -215,7 +215,7 @@ export const teaItemsData: Item[] = [
     composition: 'Peppermint leaves, water',
   },
   {
-    id: 7,
+    id: 17,
     title: 'Jasmine Tea',
     description: 'Scented with jasmine flowers',
     feature: 'standard',
@@ -228,7 +228,7 @@ export const teaItemsData: Item[] = [
     composition: 'Green tea leaves, jasmine flowers, water',
   },
   {
-    id: 8,
+    id: 18,
     title: 'White Tea',
     description: 'Least processed tea',
     feature: 'standard',
@@ -241,7 +241,7 @@ export const teaItemsData: Item[] = [
     composition: 'Camellia sinensis leaves, water',
   },
   {
-    id: 9,
+    id: 19,
     title: 'Rooibos Tea',
     description: 'Caffeine-free and fruity',
     feature: 'standard',
@@ -254,7 +254,7 @@ export const teaItemsData: Item[] = [
     composition: 'Rooibos leaves, water',
   },
   {
-    id: 10,
+    id: 20,
     title: 'Iced Tea',
     description: 'Chilled and sweetened',
     feature: 'new',
@@ -270,7 +270,7 @@ export const teaItemsData: Item[] = [
 
 export const cakeItemsData: Item[] = [
   {
-    id: 1,
+    id: 21,
     title: 'Chocolate Cake',
     description: 'Rich and decadent chocolate cake',
     feature: 'standard',
@@ -283,7 +283,7 @@ export const cakeItemsData: Item[] = [
     composition: 'Flour, sugar, cocoa powder, butter, eggs, milk, vanilla extract',
   },
   {
-    id: 2,
+    id: 22,
     title: 'Strawberry Cake',
     description: 'Delicious strawberry shortcake',
     feature: 'standard',
@@ -296,7 +296,7 @@ export const cakeItemsData: Item[] = [
     composition: 'Flour, sugar, butter, eggs, milk, vanilla extract, strawberries',
   },
   {
-    id: 3,
+    id: 23,
     title: 'Red Velvet Cake',
     description: 'Classic red velvet cake with cream cheese frosting',
     feature: 'standard',
@@ -310,7 +310,7 @@ export const cakeItemsData: Item[] = [
       'Flour, sugar, cocoa powder, butter, eggs, buttermilk, vinegar, vanilla extract, red food coloring, cream cheese, powdered sugar',
   },
   {
-    id: 4,
+    id: 24,
     title: 'Carrot Cake',
     description: 'Moist carrot cake with cream cheese frosting',
     feature: 'standard',
@@ -323,7 +323,7 @@ export const cakeItemsData: Item[] = [
     composition: 'Flour, sugar, carrots, vegetable oil, eggs, cinnamon, nutmeg, walnuts, cream cheese, powdered sugar',
   },
   {
-    id: 5,
+    id: 25,
     title: 'Vanilla Cake',
     description: 'Classic vanilla cake with buttercream frosting',
     feature: 'new',
@@ -336,7 +336,7 @@ export const cakeItemsData: Item[] = [
     composition: 'Flour, sugar, butter, eggs, milk, vanilla bean, baking powder, salt, powdered sugar',
   },
   {
-    id: 6,
+    id: 26,
     title: 'Blueberry Cake',
     description: 'Refreshing lemon blueberry cake',
     feature: 'standard',
@@ -362,7 +362,7 @@ export const cakeItemsData: Item[] = [
     composition: 'Flour, sugar, butter, eggs, milk, cocoa powder, vanilla extract, baking powder, salt',
   },
   {
-    id: 8,
+    id: 28,
     title: 'Coconut Cake',
     description: 'Fluffy coconut cake with coconut cream frosting',
     feature: 'standard',
@@ -376,7 +376,7 @@ export const cakeItemsData: Item[] = [
       'Flour, sugar, shredded coconut, butter, eggs, coconut milk, vanilla extract, baking powder, salt, cream of coconut',
   },
   {
-    id: 9,
+    id: 29,
     title: 'Pumpkin Cake',
     description: 'Spiced pumpkin cake with cream cheese frosting',
     feature: 'standard',
@@ -390,7 +390,7 @@ export const cakeItemsData: Item[] = [
       'Flour, sugar, pumpkin puree, vegetable oil, eggs, cinnamon, nutmeg, cloves, baking powder, salt, cream cheese, powdered sugar',
   },
   {
-    id: 10,
+    id: 30,
     title: 'Mango Cake',
     description: 'Exotic mango and coconut-flavored cake',
     feature: 'new',

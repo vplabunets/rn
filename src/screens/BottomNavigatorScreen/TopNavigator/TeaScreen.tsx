@@ -7,6 +7,7 @@ import { View, StyleSheet } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Item, RootStackParamList } from '@/types/types';
+import { GlobalStyles } from '@/constants/styles';
 
 type TeaScreenNavigationProp = StackNavigationProp<RootStackParamList, 'TeaInfo'>;
 
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: GlobalStyles.colors.bgcolorCard,
   },
 });
 

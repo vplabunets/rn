@@ -25,11 +25,4 @@ import Home from '@/screens/Home';
 import TeaScreen from '@/screens/BottomNavigatorScreen/TopNavigator/TeaScreen';
 import SettingsScreen from '@/screens/BottomNavigatorScreen/SettingsScreen';
 
-export const styles = StyleSheet.create({
-  tabContainer: {
-    flex: 1,
-    backgroundColor: 'black',
-    margin: 0,
-    padding: 0,
-  },
-});
+export const styles = StyleSheet.create({});

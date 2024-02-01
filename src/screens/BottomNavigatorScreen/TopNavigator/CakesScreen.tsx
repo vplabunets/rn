@@ -8,6 +8,7 @@ import { Item } from '@/types/types';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '@/types/types';
+import { GlobalStyles } from '@/constants/styles';
 
 type CakesScreenNavigationProp = StackNavigationProp<RootStackParamList, 'CakeInfo'>;
 
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: GlobalStyles.colors.bgcolorCard,
   },
 });
 

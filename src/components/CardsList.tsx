@@ -18,19 +18,21 @@ function CardsList({
   handleRefresh: () => void;
   onPressItem: (item: Item) => void;
 }): React.JSX.Element {
+  const handlePressItem = (item: Item) => {
+    onPressItem(item);
+  };
+
   return (
     <FlatList
       data={items}
-      renderItem={({ item }) => renderItem({ item, onPress: () => onPressItem(item) })} // Передайте обробник натискань у PressableCard
+      renderItem={({ item }) => renderItem({ item, onPress: () => handlePressItem(item) })}
       keyExtractor={(item: Item) => item.id.toString()}
-      // renderItem={renderItem}
-      // keyExtractor={(item: Item) => item.id.toString()}
       numColumns={2}
       refreshing={refreshing}
       onRefresh={handleRefresh}
       onEndReached={handleRefresh}
       onEndReachedThreshold={0.1}
-    ></FlatList>
+    />
   );
 }
 

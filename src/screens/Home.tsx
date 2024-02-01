@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import PromotionsScreen from '@/screens/BottomNavigatorScreen/PromotionsScreen';
@@ -14,11 +14,11 @@ const BottomTab = createBottomTabNavigator();
 
 export const Home: React.FC = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <StatusBar style="auto" animated />
+    <View style={styles.container}>
+      <StatusBar style="auto" animated translucent={true} />
       <BottomTab.Navigator
         screenOptions={({ route, navigation }) => ({
-          headerStatusBarHeight: 2,
+          headerStatusBarHeight: 20,
           tabBarLabelStyle: { fontSize: 14, fontWeight: 'bold' },
           tabBarItemStyle: { width: 100 },
           tabBarActiveTintColor: GlobalStyles.colors.accentColor,
@@ -45,7 +45,7 @@ export const Home: React.FC = () => {
         <BottomTab.Screen name="Orders" component={MyOrdersScreen} />
         <BottomTab.Screen name="Settings" component={SettingsScreen} />
       </BottomTab.Navigator>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -53,7 +53,6 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    marginTop: 30,
+    paddingTop: Platform.OS === 'android' ? 30 : 60,
   },
 });
