@@ -112,7 +112,7 @@ export function TopNavigator() {
         },
       })}
     >
-      <TopTab.Screen name="Coffee" component={CoffeeNestedScreen} />
+      {/* <TopTab.Screen name="Coffee" component={CoffeeNestedScreen} /> */}
       <TopTab.Screen name="Tea" component={TeaNestedScreen} />
       <TopTab.Screen name="Cakes" component={CakesNestedScreen} />
     </TopTab.Navigator>
