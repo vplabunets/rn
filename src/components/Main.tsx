@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { useRoute } from 'router';
+
+import { useRoute } from '@/types/routing';
 
 export const Main = () => {
-  const rounting = useRoute(true);
+  const routing = useRoute(true);
 
-  return <NavigationContainer>{rounting}</NavigationContainer>;
+  return <NavigationContainer>{routing}</NavigationContainer>;
 };
