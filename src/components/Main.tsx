@@ -16,4 +16,5 @@ export const Main = () => {
   }, []);
 
   return <NavigationContainer>{routing}</NavigationContainer>;
+  return <NavigationContainer>{routing}</NavigationContainer>;
 };
