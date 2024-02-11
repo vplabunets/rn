@@ -80,7 +80,7 @@ export const CakesNestedScreen: React.FC = () => {
         title="CakeScreen"
         component={CakesScreen}
         options={{
-          headerShown: true,
+          headerShown: false,
         }}
       />
       <NestedScreen.Screen
@@ -97,7 +97,6 @@ export function TopNavigator() {
   return (
     <TopTab.Navigator
       screenOptions={({ route, navigation }) => ({
-        headerStatusBarHeight: 0,
         tabBarLabelStyle: { fontSize: 14, fontWeight: 'bold' },
         tabBarItemStyle: {
           flex: 1,
