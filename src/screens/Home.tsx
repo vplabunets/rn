@@ -5,10 +5,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import PromotionsScreen from '@/screens/BottomNavigatorScreen/PromotionsScreen';
 import CartScreen from '@/screens/BottomNavigatorScreen/CartScreen';
 import MyOrdersScreen from '@/screens/BottomNavigatorScreen/MyOrdersScreen';
-import SettingsScreen from '@/screens/BottomNavigatorScreen/SettingsScreen';
 import IconButton from '@/UI/IconButton';
 import { GlobalStyles } from '@/constants/styles';
 import { TopNavigator } from '@/screens/BottomNavigatorScreen/TopNavigator/TopNavigatorScreen';
+import ProfileScreen from '@/screens/BottomNavigatorScreen/ProfileScreen';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -28,7 +28,7 @@ export const Home: React.FC = () => {
             else if (route.name === 'Promo') iconName = 'star';
             else if (route.name === 'Cart') iconName = 'cart';
             else if (route.name === 'Orders') iconName = 'list';
-            else if (route.name === 'Settings') iconName = 'settings-outline';
+            else if (route.name === 'Profile') iconName = 'person';
             return (
               <IconButton
                 icon={iconName}
@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
         <BottomTab.Screen name="Promo" component={PromotionsScreen} options={{ headerShown: false }} />
         <BottomTab.Screen name="Cart" component={CartScreen} />
         <BottomTab.Screen name="Orders" component={MyOrdersScreen} />
-        <BottomTab.Screen name="Settings" component={SettingsScreen} />
+        <BottomTab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
       </BottomTab.Navigator>
     </View>
   );
