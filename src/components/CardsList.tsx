@@ -1,6 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
+
 import PressableCard from './PressableCard';
+
 import { Item } from '@/types/types';
 
 const renderItem = ({ item, onPress }: { item: Item; onPress: () => void }) => (

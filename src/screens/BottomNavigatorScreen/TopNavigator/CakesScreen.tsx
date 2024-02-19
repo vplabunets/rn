@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+
+import { StackNavigationProp } from '@react-navigation/stack';
+
+import { itemsData } from '@/data/data';
+
 import CardsList from '@/components/CardsList';
 import Form from '@/components/Form';
 import ModalWindow from '@/components/ModalWindow';
-import { cakeItemsData } from '@/data/data';
-import { View, StyleSheet } from 'react-native';
-import { Item } from '@/types/types';
 
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '@/types/types';
+import { RootStackParamList, Item } from '@/types/types';
 import { GlobalStyles } from '@/constants/styles';
 
 type CakesScreenNavigationProp = StackNavigationProp<RootStackParamList, 'CakeInfo'>;
@@ -18,8 +20,8 @@ interface CakesScreenProps {
 
 function CakesScreen({ navigation }: CakesScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [filteredItems, setFilteredItems] = useState(cakeItemsData);
-  const [comingItems, setItems] = useState(cakeItemsData);
+  const [filteredItems, setFilteredItems] = useState(itemsData.filter(item => item.productType === 'cake'));
+  const [comingItems, setItems] = useState(itemsData.filter(item => item.productType === 'cake'));
   const [refreshing, setRefreshing] = useState(false);
 
   const onPressItem = (item: Item) => {
@@ -28,7 +30,7 @@ function CakesScreen({ navigation }: CakesScreenProps) {
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
-      setItems(prevItems => [...prevItems, ...cakeItemsData]);
+      setItems(prevItems => [...prevItems, ...itemsData.filter(item => item.productType === 'cake')]);
       setRefreshing(false);
     }, 1000);
   };

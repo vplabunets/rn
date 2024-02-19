@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
+
+import { itemsData } from '@/data/data';
+import { GlobalStyles } from '@/constants/styles';
+
 import CardsList from '@/components/CardsList';
 import Form from '@/components/Form';
 import ModalWindow from '@/components/ModalWindow';
-import { teaItemsData } from '@/data/data';
-import { View, StyleSheet } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Item, RootStackParamList } from '@/types/types';
-import { GlobalStyles } from '@/constants/styles';
 
 type TeaScreenNavigationProp = StackNavigationProp<RootStackParamList, 'TeaInfo'>;
 
@@ -16,8 +18,8 @@ interface TeaScreenProps {
 }
 function TeaScreen({ navigation }: TeaScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [filteredItems, setFilteredItems] = useState(teaItemsData);
-  const [comingItems, setItems] = useState(teaItemsData);
+  const [filteredItems, setFilteredItems] = useState(itemsData.filter(item => item.productType === 'tea'));
+  const [comingItems, setItems] = useState(itemsData.filter(item => item.productType === 'tea'));
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ function TeaScreen({ navigation }: TeaScreenProps) {
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
-      setItems(prevItems => [...prevItems, ...teaItemsData]);
+      setItems(prevItems => [...prevItems, ...itemsData.filter(item => item.productType === 'tea')]);
       setRefreshing(false);
     }, 1000);
   };

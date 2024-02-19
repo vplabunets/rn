@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, Platform, Button } from 'react-native';
-import { NavigationProp, RouteProp } from '@react-navigation/native';
+
 import { GlobalStyles } from '@/constants/styles';
+
 import Star from '../../UI/Star';
+
+import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '@/types/types';
 
 type CakeInfoNavigationProp = NavigationProp<RootStackParamList, 'CakeInfo'>;

@@ -2,6 +2,7 @@ export type Icon = 'heart' | 'search-sharp';
 
 export type Item = {
   id: number;
+  productType: string;
   title: string;
   description: string;
   feature: string;

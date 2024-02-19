@@ -1,12 +1,15 @@
 import React from 'react';
 
-import { GlobalStyles } from '@/constants/styles';
-import { email, name } from '@/redux/auth/authSelector';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
+
 import { useDispatch, useSelector } from 'react-redux';
+import { authSignOutUser } from '@/redux/auth/authOperations';
+import { email, name } from '@/redux/auth/authSelector';
+
+import { GlobalStyles } from '@/constants/styles';
+
 import { Ionicons } from '@expo/vector-icons';
 import IconButton from '@/UI/IconButton';
-import { authSignOutUser } from '@/redux/auth/authOperations';
 
 const ProfileScreen = () => {
   const userName = useSelector(name);

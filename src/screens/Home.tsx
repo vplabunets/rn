@@ -1,14 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, View } from 'react-native';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { GlobalStyles } from '@/constants/styles';
 
 import PromotionsScreen from '@/screens/BottomNavigatorScreen/PromotionsScreen';
 import CartScreen from '@/screens/BottomNavigatorScreen/CartScreen';
-import MyOrdersScreen from '@/screens/BottomNavigatorScreen/MyOrdersScreen';
-import IconButton from '@/UI/IconButton';
-import { GlobalStyles } from '@/constants/styles';
-import { TopNavigator } from '@/screens/BottomNavigatorScreen/TopNavigator/TopNavigatorScreen';
 import ProfileScreen from '@/screens/BottomNavigatorScreen/ProfileScreen';
+import MyOrdersScreen from '@/screens/BottomNavigatorScreen/MyOrdersScreen';
+import { TopNavigator } from '@/screens/BottomNavigatorScreen/TopNavigator/TopNavigatorScreen';
+
+import IconButton from '@/UI/IconButton';
 
 const BottomTab = createBottomTabNavigator();
 

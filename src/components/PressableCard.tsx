@@ -4,6 +4,8 @@ import { GlobalStyles } from '../constants/styles';
 import Star from '../UI/Star';
 import Button from '../UI/Button';
 import { Item } from '@/types/types';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '@/redux/cart/cartReducer';
 
 function convertToUSD(initialNumber: number) {
   return initialNumber.toLocaleString('en-US', {
@@ -14,10 +16,19 @@ function convertToUSD(initialNumber: number) {
 //@ts-ignore
 function PressableCard({ item, onPress }: { item: Item; onPress: (xxx: Item) => void }): React.JSX.Element {
   const [isFavorite, setIsFavorite] = useState(false);
-  const { title, description, price, rating, url, feature } = item;
+  const dispatch = useDispatch();
+
+  const { title, description, price, rating, url, feature, id } = item;
+  console.log(id);
 
   function handleIsFavorite() {
     setIsFavorite(!isFavorite);
+  }
+  function handleAddToCart() {
+    // console.log('handleAddToCart');
+    // console.log(addProduct);
+
+    dispatch(addProduct({ productId: id, quantity: 1 }));
   }
 
   return (
@@ -56,7 +67,7 @@ function PressableCard({ item, onPress }: { item: Item; onPress: (xxx: Item) => 
         </View>
         <View style={styles.priceContainer}>
           <Text style={styles.price}>{convertToUSD(price)}</Text>
-          <Button onPress={() => console.log('hello')}>+</Button>
+          <Button onPress={() => handleAddToCart()}>+</Button>
         </View>
       </Pressable>
     </View>

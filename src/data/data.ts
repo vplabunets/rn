@@ -1,8 +1,9 @@
 import { Item } from '@/types/types';
 
-export const coffeeItemsData1: Item[] = [
+export const itemsData: Item[] = [
   {
     id: 1,
+    productType: 'coffee',
     title: 'Cappuccino',
     description: 'with Chocolate',
     feature: 'standard',
@@ -16,6 +17,7 @@ export const coffeeItemsData1: Item[] = [
   },
   {
     id: 2,
+    productType: 'coffee',
     title: 'Espresso',
     description: 'Strong and short',
     feature: 'standard',
@@ -29,6 +31,8 @@ export const coffeeItemsData1: Item[] = [
   },
   {
     id: 3,
+    productType: 'coffee',
+
     title: 'Latte',
     description: 'Creamy and smooth',
     feature: 'standard',
@@ -42,6 +46,8 @@ export const coffeeItemsData1: Item[] = [
   },
   {
     id: 4,
+    productType: 'coffee',
+
     title: 'Americano',
     description: 'Diluted espresso',
     feature: 'standard',
@@ -53,11 +59,9 @@ export const coffeeItemsData1: Item[] = [
     calories: 10,
     composition: 'Espresso, hot water',
   },
-];
-
-export const coffeeItemsData2: Item[] = [
   {
     id: 5,
+    productType: 'coffee',
     title: 'Mocha',
     description: 'With chocolate',
     feature: 'new',
@@ -71,6 +75,7 @@ export const coffeeItemsData2: Item[] = [
   },
   {
     id: 6,
+    productType: 'coffee',
     title: 'Macchiato',
     description: 'Espresso with a dash of milk',
     feature: 'standard',
@@ -84,6 +89,7 @@ export const coffeeItemsData2: Item[] = [
   },
   {
     id: 7,
+    productType: 'coffee',
     title: 'Affogato',
     description: 'Espresso poured over ice cream',
     feature: 'standard',
@@ -97,6 +103,7 @@ export const coffeeItemsData2: Item[] = [
   },
   {
     id: 8,
+    productType: 'coffee',
     title: 'Flat White',
     description: 'Microfoam and espresso',
     feature: 'standard',
@@ -110,6 +117,7 @@ export const coffeeItemsData2: Item[] = [
   },
   {
     id: 9,
+    productType: 'coffee',
     title: 'Turkish Coffee',
     description: 'Strong and unfiltered',
     feature: 'standard',
@@ -123,6 +131,7 @@ export const coffeeItemsData2: Item[] = [
   },
   {
     id: 10,
+    productType: 'coffee',
     title: 'Iced Coffee',
     description: 'Chilled and refreshing',
     feature: 'new',
@@ -133,11 +142,10 @@ export const coffeeItemsData2: Item[] = [
     calories: 100,
     composition: 'Finely-ground coffee beans, water, sugar',
   },
-];
 
-export const teaItemsData: Item[] = [
   {
     id: 11,
+    productType: 'tea',
     title: 'Green Tea',
     description: 'Light and refreshing',
     feature: 'standard',
@@ -151,6 +159,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 12,
+    productType: 'tea',
     title: 'Black Tea',
     description: 'Rich and bold',
     feature: 'standard',
@@ -164,6 +173,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 13,
+    productType: 'tea',
     title: 'Chamomile Tea',
     description: 'Calming and soothing',
     feature: 'standard',
@@ -177,6 +187,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 14,
+    productType: 'tea',
     title: 'Oolong Tea',
     description: 'Partially oxidized',
     feature: 'standard',
@@ -190,6 +201,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 15,
+    productType: 'tea',
     title: 'Earl Grey',
     description: 'Black tea with bergamot flavor',
     feature: 'new',
@@ -203,6 +215,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 16,
+    productType: 'tea',
     title: 'Peppermint Tea',
     description: 'Refreshing and minty',
     feature: 'standard',
@@ -216,6 +229,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 17,
+    productType: 'tea',
     title: 'Jasmine Tea',
     description: 'Scented with jasmine flowers',
     feature: 'standard',
@@ -229,6 +243,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 18,
+    productType: 'tea',
     title: 'White Tea',
     description: 'Least processed tea',
     feature: 'standard',
@@ -242,6 +257,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 19,
+    productType: 'tea',
     title: 'Rooibos Tea',
     description: 'Caffeine-free and fruity',
     feature: 'standard',
@@ -255,6 +271,7 @@ export const teaItemsData: Item[] = [
   },
   {
     id: 20,
+    productType: 'tea',
     title: 'Iced Tea',
     description: 'Chilled and sweetened',
     feature: 'new',
@@ -266,11 +283,10 @@ export const teaItemsData: Item[] = [
     calories: 20,
     composition: 'Tea leaves, water, ice, sweetener (optional)',
   },
-];
 
-export const cakeItemsData: Item[] = [
   {
     id: 21,
+    productType: 'cake',
     title: 'Chocolate Cake',
     description: 'Rich and decadent chocolate cake',
     feature: 'standard',
@@ -284,6 +300,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 22,
+    productType: 'cake',
     title: 'Strawberry Cake',
     description: 'Delicious strawberry shortcake',
     feature: 'standard',
@@ -297,6 +314,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 23,
+    productType: 'cake',
     title: 'Red Velvet Cake',
     description: 'Classic red velvet cake with cream cheese frosting',
     feature: 'standard',
@@ -311,6 +329,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 24,
+    productType: 'cake',
     title: 'Carrot Cake',
     description: 'Moist carrot cake with cream cheese frosting',
     feature: 'standard',
@@ -324,6 +343,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 25,
+    productType: 'cake',
     title: 'Vanilla Cake',
     description: 'Classic vanilla cake with buttercream frosting',
     feature: 'new',
@@ -337,6 +357,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 26,
+    productType: 'cake',
     title: 'Blueberry Cake',
     description: 'Refreshing lemon blueberry cake',
     feature: 'standard',
@@ -350,6 +371,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 7,
+    productType: 'cake',
     title: 'Marble Cake',
     description: 'Classic marble cake with swirls of chocolate and vanilla',
     feature: 'standard',
@@ -363,6 +385,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 28,
+    productType: 'cake',
     title: 'Coconut Cake',
     description: 'Fluffy coconut cake with coconut cream frosting',
     feature: 'standard',
@@ -377,6 +400,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 29,
+    productType: 'cake',
     title: 'Pumpkin Cake',
     description: 'Spiced pumpkin cake with cream cheese frosting',
     feature: 'standard',
@@ -391,6 +415,7 @@ export const cakeItemsData: Item[] = [
   },
   {
     id: 30,
+    productType: 'cake',
     title: 'Mango Cake',
     description: 'Exotic mango and coconut-flavored cake',
     feature: 'new',

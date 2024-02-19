@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Animated, StyleSheet, Dimensions } from 'react-native';
+
 import { GlobalStyles } from '@/constants/styles';
 
 const { width } = Dimensions.get('screen');

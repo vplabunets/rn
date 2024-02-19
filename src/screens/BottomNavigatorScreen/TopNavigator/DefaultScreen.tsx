@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+
+import { GlobalStyles } from '@/constants/styles';
+import { itemsData } from '@/data/data';
+
 import CardsList from '@/components/CardsList';
 import Form from '@/components/Form';
 import ModalWindow from '@/components/ModalWindow';
-import { coffeeItemsData1 } from '@/data/data';
-import { coffeeItemsData2 } from '@/data/data';
-import { View, StyleSheet } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Item, RootStackParamList } from '@/types/types';
-import { GlobalStyles } from '@/constants/styles';
 
 type DefaultScreenNavigationProp = StackNavigationProp<RootStackParamList, 'CoffeeInfo'>;
 
@@ -18,8 +19,8 @@ interface DefaultScreenProps {
 
 function DefaultScreen({ navigation }: DefaultScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [comingItems, setItems] = useState(coffeeItemsData1);
-  const [filteredItems, setFilteredItems] = useState(coffeeItemsData1);
+  const [comingItems, setItems] = useState(itemsData.filter(item => item.productType === 'coffee'));
+  const [filteredItems, setFilteredItems] = useState(itemsData.filter(item => item.productType === 'coffee'));
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ function DefaultScreen({ navigation }: DefaultScreenProps) {
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
-      setItems(prevItems => [...prevItems, ...coffeeItemsData2]);
+      setItems(prevItems => [...prevItems, ...itemsData.filter(item => item.productType === 'coffee')]);
       setRefreshing(false);
     }, 1000);
   };

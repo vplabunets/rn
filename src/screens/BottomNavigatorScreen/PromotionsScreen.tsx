@@ -1,7 +1,9 @@
-import Slider from '@/components/Slider/Slider';
-import { promo } from '@/data/data';
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+
+import { promo } from '@/data/data';
+
+import Slider from '@/components/Slider/Slider';
 
 const PromotionsScreen = () => {
   return (

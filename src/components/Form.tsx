@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Checkbox from 'expo-checkbox';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
+
+import Checkbox from 'expo-checkbox';
+
 import IconButton from '@/UI/IconButton';
+
 import { GlobalStyles } from '@/constants/styles';
+
 import { FormProps } from '@/types/types';
 
 const Form: React.FC<FormProps> = ({ handleModal, modalVisible, handleFilteredItems }) => {

@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FlatList, Dimensions, NativeSyntheticEvent, NativeScrollEvent, Animated, RefreshControl } from 'react-native';
+import { FlatList, Dimensions, NativeSyntheticEvent, NativeScrollEvent, Animated } from 'react-native';
 
 import SlideItem from '@/components/Slider/SlideItem';
 import SliderPagination from '@/components/Slider/SliderPagination';
+
 import { SliderProps, SlideData } from '@/types/types';
 
 const renderSlide = ({ id, image }: SlideData) => {

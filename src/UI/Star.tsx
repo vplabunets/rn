@@ -1,6 +1,8 @@
-import { GlobalStyles } from '@/constants/styles';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
+
+import { GlobalStyles } from '@/constants/styles';
+
 import Svg, { Path } from 'react-native-svg';
 
 interface StarProps {

@@ -1,11 +1,13 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import CoffeeInfo from '@/components/ItemCards/CoffeeInfo';
+
+import { GlobalStyles } from '@/constants/styles';
+
+import DefaultScreen from './DefaultScreen';
 import TeaScreen from './TeaScreen';
 import CakesScreen from './CakesScreen';
 import CakeInfo from '@/components/ItemCards/CakeInfo';
-import { GlobalStyles } from '@/constants/styles';
-import DefaultScreen from './DefaultScreen';
+import CoffeeInfo from '@/components/ItemCards/CoffeeInfo';
 import TeaInfo from '@/components/ItemCards/TeaInfo';
 
 const TopTab = createMaterialTopTabNavigator();
