@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -20,40 +20,32 @@ interface CakesScreenProps {
 
 function CakesScreen({ navigation }: CakesScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [filteredItems, setFilteredItems] = useState(itemsData.filter(item => item.productType === 'cake'));
-  const [comingItems, setItems] = useState(itemsData.filter(item => item.productType === 'cake'));
-  const [refreshing, setRefreshing] = useState(false);
+  const [filteredItems, setFilteredItems] = useState(itemsData.filter(item => item.productType === 'coffee'));
+
+  useEffect(() => {
+    setFilteredItems(itemsData.filter(item => item.productType === 'tea'));
+  }, [itemsData]);
 
   const onPressItem = (item: Item) => {
     navigation.navigate('CakeInfo', { item });
   };
-  const handleRefresh = () => {
-    setRefreshing(true);
-    setTimeout(() => {
-      setItems(prevItems => [...prevItems, ...itemsData.filter(item => item.productType === 'cake')]);
-      setRefreshing(false);
-    }, 1000);
-  };
+
+  const handleRefresh = () => {};
+
   function handleFilteredItems(query: string, isChecked: boolean): void {
     if (isChecked) {
       setFilteredItems(
-        comingItems.filter(
-          item => item.feature === 'new' && item.title.toLocaleLowerCase().includes(query.toLowerCase())
-        )
+        itemsData.filter(item => item.feature === 'new' && item.title.toLocaleLowerCase().includes(query.toLowerCase()))
       );
     } else {
-      setFilteredItems(comingItems.filter(item => item.title.toLocaleLowerCase().includes(query.toLowerCase())));
+      setFilteredItems(itemsData.filter(item => item.title.toLocaleLowerCase().includes(query.toLowerCase())));
     }
   }
+
   return (
     <View style={styles.container}>
       <Form handleModal={setModalVisible} modalVisible={modalVisible} handleFilteredItems={handleFilteredItems} />
-      <CardsList
-        items={filteredItems}
-        refreshing={refreshing}
-        handleRefresh={handleRefresh}
-        onPressItem={onPressItem}
-      />
+      <CardsList items={filteredItems} refreshing={false} handleRefresh={handleRefresh} onPressItem={onPressItem} />
       <ModalWindow handleModal={setModalVisible} modalVisible={modalVisible} />
     </View>
   );

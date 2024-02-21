@@ -26,21 +26,20 @@ export const authSignUpUser =
   async (dispatch: AppDispatch) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      //@ts-ignore
-      await updateProfile(auth.currentUser, {
-        displayName: name,
-      });
-      console.log('auth.currentUser', auth.currentUser);
-      //@ts-ignore
-      const { uid, displayName } = await auth.currentUser;
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, {
+          displayName: name,
+        });
+        const { uid, displayName } = await auth.currentUser;
 
-      dispatch(
-        authSlice.actions.updateUserProfile({
-          userId: uid,
-          name: displayName,
-          email: email,
-        })
-      );
+        dispatch(
+          authSlice.actions.updateUserProfile({
+            userId: uid,
+            name: displayName,
+            email: email,
+          })
+        );
+      }
     } catch (error: any) {
       console.log('error', error);
       console.log('error.message', error.message);

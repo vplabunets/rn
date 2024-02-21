@@ -15,7 +15,6 @@ import { NavigationProp } from '@react-navigation/native';
 
 import { GlobalStyles } from '@/constants/styles';
 import Layout from '@/UI/Layout';
-
 import { authSignInUser } from '@/redux/auth/authOperations';
 
 interface RegistrationScreenProps {
@@ -37,11 +36,12 @@ function LoginScreen({ navigation }: RegistrationScreenProps) {
     setIsShowKeyboard(false);
     Keyboard.dismiss();
   }
+
   function handleSubmitForm() {
     setIsShowKeyboard(false);
     Keyboard.dismiss();
     //@ts-ignore
-    dispatch(authSignInUser(user));
+    dispatch(authSignInUser({ email: user.email, password: user.password }));
     setUser(initialState);
   }
 

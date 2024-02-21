@@ -17,9 +17,13 @@ const ProfileScreen = () => {
   const dispatch = useDispatch();
   console.log(userName);
 
+  // function handleLogOut() {
+  //   console.log('logout');
+  //   dispatch(authSignOutUser());
+  // }
+
   function handleLogOut() {
     console.log('logout');
-    //@ts-ignore
     dispatch(authSignOutUser());
   }
 

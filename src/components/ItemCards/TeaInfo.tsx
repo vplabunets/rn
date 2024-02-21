@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, Platform, Button } from 'react-native';
 
 import { GlobalStyles } from '@/constants/styles';
-
 import Star from '../../UI/Star';
 
-import { RootStackParamList } from '@/types/types';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
+import { RootState } from '@/redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavorites, removeFromFavorites } from '@/redux/favorites/favoritesSlice';
+import { RootStackParamList } from '@/types/types';
+
+import { convertToUSD } from '@/helpers';
 
 type TeaInfoNavigationProp = NavigationProp<RootStackParamList, 'TeaInfo'>;
 type TeaInfoRouteProp = RouteProp<RootStackParamList, 'TeaInfo'>;
@@ -15,25 +19,32 @@ type TeaInfoProps = {
   navigation: TeaInfoNavigationProp;
   route: TeaInfoRouteProp;
 };
-const TeaInfo: React.FC<TeaInfoProps> = ({ navigation, route }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+const TeaInfo: React.FC<TeaInfoProps> = ({ route }) => {
+  const { feature, url, rating, title, price, fullDescription, id, composition } = route.params.item;
 
-  function handleIsFavorite() {
-    setIsFavorite(!isFavorite);
+  const [favorites, setFavorites] = useState<number[]>([]);
+
+  const favoritesArray = useSelector((state: RootState) => state.favorites);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setFavorites(favoritesArray);
+  }, [favoritesArray]);
+
+  function handleIsFavorite(productId: number) {
+    if (favorites.includes(productId)) {
+      dispatch(removeFromFavorites(productId));
+    } else {
+      dispatch(addToFavorites(productId));
+    }
   }
-  function convertToUSD(initialNumber: number) {
-    return initialNumber.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    });
-  }
-  const { feature, url, rating, title, price, fullDescription, calories, composition } = route.params.item;
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <View style={styles.ratingContainer}>
           <View>
-            <Star onPress={handleIsFavorite} isFavorite={isFavorite} />
+            <Star onPress={() => handleIsFavorite(id)} isFavorite={favorites.includes(id)} />
           </View>
           <View style={styles.ratingTextContainer}>
             <Text style={styles.ratingText}>{rating}</Text>

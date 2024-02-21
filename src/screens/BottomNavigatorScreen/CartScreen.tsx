@@ -2,13 +2,14 @@ import Button from '@/UI/Button';
 import IconButton from '@/UI/IconButton';
 import { GlobalStyles } from '@/constants/styles';
 import { itemsData } from '@/data/data';
-import { addProduct } from '@/redux/cart/cartReducer';
+import { addProduct, removeProduct } from '@/redux/cart/cartReducer';
 import { getCart } from '@/redux/cart/cartSelectors';
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, Platform } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
 
-interface Product {
+interface ProductItem {
   productId: any;
   quantity: number;
 }
@@ -39,7 +40,6 @@ const renderItem = (item, handleRemoveItem, handleIncrementItem) => {
           width: '100%',
           alignItems: 'center',
           justifyContent: 'space-between',
-          // alignContent: 'center',
           height: 120,
           padding: 10,
           backgroundColor: GlobalStyles.colors.background,
@@ -66,7 +66,7 @@ const renderItem = (item, handleRemoveItem, handleIncrementItem) => {
             <IconButton
               icon="add-circle-sharp"
               color={GlobalStyles.colors.accentColor}
-              onPress={() => handleIncrementItem(item.id, item.quantity)}
+              onPress={() => handleIncrementItem(item.id, 1)}
             />
           </View>
           <Text>Total price: {(item.price * item.quantity).toFixed(2)} USD</Text>
@@ -80,9 +80,9 @@ const renderItem = (item, handleRemoveItem, handleIncrementItem) => {
 };
 
 const CartScreen = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<ProductItem[]>([]);
   const dispatch = useDispatch();
-  const selectedCart = useSelector(getCart);
+  const selectedCart = useSelector((state: RootState) => state.cart);
 
   const displayCartArray = selectedCart.map(cartItem => {
     const foundItem = itemsData.find(item => item.id === cartItem.productId);
@@ -91,21 +91,15 @@ const CartScreen = () => {
     }
   });
 
-  console.log(displayCartArray);
+  //@ts-ignore
+  useEffect(() => setCart(displayCartArray), [selectedCart]);
 
-  //@ts-ignore
-  useEffect(() => setCart(displayCartArray), []);
-  //@ts-ignore
-  const removeItem = id => {
-    setCart(prevCart => {
-      console.log(prevCart);
-      //@ts-ignore
-      return prevCart.filter(el => el.id !== id);
-    });
+  const removeItem = (id: number) => {
+    //@ts-ignore
+    dispatch(removeProduct(id));
   };
-  //@ts-ignore
 
-  const incrementItem = (productId, quantity) => {
+  const incrementItem = (productId: number, quantity: number) => {
     dispatch(addProduct({ productId, quantity }));
   };
 
@@ -114,13 +108,13 @@ const CartScreen = () => {
       <FlatList
         data={cart}
         renderItem={({ item }) => {
+          console.log(item);
+
           return renderItem(item, removeItem, incrementItem);
         }}
-        //@ts-ignore
-        keyExtractor={item => item.id.toString()}
-        // numColumns={1}
+        keyExtractor={(item: ProductItem) => item.productId.toString()}
       />
-      <Button onPress={() => console.log('hello')}>
+      <Button onPress={() => console.log('Confirm order')}>
         <Text> Confirm order</Text>
       </Button>
     </View>
@@ -140,10 +134,6 @@ const styles = StyleSheet.create({
     padding: 15,
     display: 'flex',
     alignItems: 'center',
-    // justifyContent: 'center',
-    // alignSelf: 'flex-end',
-    // width: 96,
-    // height: 48,
     borderRadius: 12,
 
     color: GlobalStyles.colors.mainTextColor,

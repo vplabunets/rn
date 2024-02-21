@@ -17,6 +17,7 @@ const Form: React.FC<FormProps> = ({ handleModal, modalVisible, handleFilteredIt
   useEffect(() => {
     handleFilteredItems(text, isChecked);
   }, [text, isChecked]);
+
   function handleModalVisible() {
     handleModal(!modalVisible);
   }

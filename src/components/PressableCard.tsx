@@ -1,33 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Image, StyleSheet, View, Text, Pressable, Platform } from 'react-native';
 import { GlobalStyles } from '../constants/styles';
 import Star from '../UI/Star';
-import Button from '../UI/Button';
+import IconButton from '@/UI/IconButton';
+
 import { Item } from '@/types/types';
-import { useDispatch } from 'react-redux';
+import { RootState } from '@/redux/store';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '@/redux/cart/cartReducer';
+import { addToFavorites, removeFromFavorites } from '@/redux/favorites/favoritesSlice';
+import { convertToUSD } from '@/helpers';
 
-function convertToUSD(initialNumber: number) {
-  return initialNumber.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });
-}
-//@ts-ignore
 function PressableCard({ item, onPress }: { item: Item; onPress: (xxx: Item) => void }): React.JSX.Element {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [favorites, setFavorites] = useState<number[]>([]);
+
+  const favoritesArray = useSelector((state: RootState) => state.favorites);
   const dispatch = useDispatch();
-
   const { title, description, price, rating, url, feature, id } = item;
-  console.log(id);
 
-  function handleIsFavorite() {
-    setIsFavorite(!isFavorite);
+  useEffect(() => {
+    setFavorites(favoritesArray);
+  }, [favoritesArray]);
+
+  function handleIsFavorite(productId: number) {
+    if (favorites.includes(productId)) {
+      dispatch(removeFromFavorites(productId));
+    } else {
+      dispatch(addToFavorites(productId));
+    }
   }
-  function handleAddToCart() {
-    // console.log('handleAddToCart');
-    // console.log(addProduct);
 
+  function handleAddToCart() {
     dispatch(addProduct({ productId: id, quantity: 1 }));
   }
 
@@ -41,7 +45,7 @@ function PressableCard({ item, onPress }: { item: Item; onPress: (xxx: Item) => 
         <View style={styles.imageContainer}>
           <View style={styles.ratingContainer}>
             <View>
-              <Star onPress={handleIsFavorite} isFavorite={isFavorite} />
+              <Star onPress={() => handleIsFavorite(id)} isFavorite={favorites.includes(id)} />
             </View>
             <View style={styles.ratingTextContainer}>
               <Text style={styles.ratingText}>{rating}</Text>
@@ -67,7 +71,7 @@ function PressableCard({ item, onPress }: { item: Item; onPress: (xxx: Item) => 
         </View>
         <View style={styles.priceContainer}>
           <Text style={styles.price}>{convertToUSD(price)}</Text>
-          <Button onPress={() => handleAddToCart()}>+</Button>
+          <IconButton icon="cart-outline" color={GlobalStyles.colors.accentColor} onPress={() => handleAddToCart()} />
         </View>
       </Pressable>
     </View>

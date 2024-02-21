@@ -2,10 +2,12 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { authSlice } from './auth/authReducer';
 import { useDispatch } from 'react-redux';
 import { cartSlice } from './cart/cartReducer';
+import { favoritesSlice } from './favorites/favoritesSlice';
 
 const rootReducer = combineReducers({
   [authSlice.name]: authSlice.reducer,
   [cartSlice.name]: cartSlice.reducer,
+  [favoritesSlice.name]: favoritesSlice.reducer,
 });
 
 export const store = configureStore({

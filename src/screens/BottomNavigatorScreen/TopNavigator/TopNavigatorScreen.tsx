@@ -90,7 +90,7 @@ export const CakesNestedScreen: React.FC = () => {
         name="CakeInfo"
         //@ts-ignore
         component={CakeInfo}
-        title="Comments"
+        title="CakeInfo"
       />
     </NestedScreen.Navigator>
   );

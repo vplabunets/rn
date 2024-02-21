@@ -12,10 +12,18 @@ import MyOrdersScreen from '@/screens/BottomNavigatorScreen/MyOrdersScreen';
 import { TopNavigator } from '@/screens/BottomNavigatorScreen/TopNavigator/TopNavigatorScreen';
 
 import IconButton from '@/UI/IconButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCart } from '@/redux/cart/cartSelectors';
 
 const BottomTab = createBottomTabNavigator();
 
 export const Home: React.FC = () => {
+  const cart = useSelector(getCart);
+
+  const productQty = cart.reduce((total, product) => {
+    return total + product.quantity;
+  }, 0);
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" animated translucent={true} />
@@ -44,7 +52,11 @@ export const Home: React.FC = () => {
       >
         <BottomTab.Screen name="Menu" component={TopNavigator} options={{ headerShown: false }} />
         <BottomTab.Screen name="Promo" component={PromotionsScreen} options={{ headerShown: false }} />
-        <BottomTab.Screen name="Cart" component={CartScreen} />
+        <BottomTab.Screen
+          name="Cart"
+          component={CartScreen}
+          options={{ tabBarBadge: productQty > 0 ? productQty : undefined }}
+        />
         <BottomTab.Screen name="Orders" component={MyOrdersScreen} />
         <BottomTab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
       </BottomTab.Navigator>

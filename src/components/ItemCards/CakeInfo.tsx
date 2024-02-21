@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, Platform, Button } from 'react-native';
 
 import { GlobalStyles } from '@/constants/styles';
@@ -7,6 +7,11 @@ import Star from '../../UI/Star';
 
 import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '@/types/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from '@/redux/cart/cartReducer';
+import { RootState } from '@/redux/store';
+import { convertToUSD } from '@/helpers';
+import { addToFavorites, removeFromFavorites } from '@/redux/favorites/favoritesSlice';
 
 type CakeInfoNavigationProp = NavigationProp<RootStackParamList, 'CakeInfo'>;
 type CakeInfoRouteProp = RouteProp<RootStackParamList, 'CakeInfo'>;
@@ -15,25 +20,36 @@ type CakeInfoProps = {
   navigation: CakeInfoNavigationProp;
   route: CakeInfoRouteProp;
 };
-const CakeInfo: React.FC<CakeInfoProps> = ({ navigation, route }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
 
-  function handleIsFavorite() {
-    setIsFavorite(!isFavorite);
+const CakeInfo: React.FC<CakeInfoProps> = ({ navigation, route }) => {
+  const { feature, url, rating, title, price, fullDescription, id, composition } = route.params.item;
+
+  const [favorites, setFavorites] = useState<number[]>([]);
+  const favoritesArray = useSelector((state: RootState) => state.favorites);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setFavorites(favoritesArray);
+  }, [favoritesArray]);
+
+  function handleIsFavorite(productId: number) {
+    if (favorites.includes(productId)) {
+      dispatch(removeFromFavorites(productId));
+    } else {
+      dispatch(addToFavorites(productId));
+    }
   }
-  function convertToUSD(initialNumber: number) {
-    return initialNumber.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    });
+
+  function handleAddToCart() {
+    dispatch(addProduct({ productId: id, quantity: 1 }));
   }
-  const { feature, url, rating, title, price, fullDescription, calories, composition } = route.params.item;
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <View style={styles.ratingContainer}>
           <View>
-            <Star onPress={handleIsFavorite} isFavorite={isFavorite} />
+            <Star onPress={() => handleIsFavorite(id)} isFavorite={favorites.includes(id)} />
           </View>
           <View style={styles.ratingTextContainer}>
             <Text style={styles.ratingText}>{rating}</Text>
@@ -65,9 +81,15 @@ const CakeInfo: React.FC<CakeInfoProps> = ({ navigation, route }) => {
           <Text style={styles.price}>{convertToUSD(price)}</Text>
           <Button
             color={GlobalStyles.colors.accentColor}
-            onPress={() => console.log('hello')}
+            onPress={() => handleAddToCart()}
             // onPress={() => navigation.goBack()}
             title="Add to Chart"
+          ></Button>
+          <Button
+            color={GlobalStyles.colors.accentColor}
+            // onPress={() => console.log('hello')}
+            onPress={() => navigation.goBack()}
+            title="go back"
           ></Button>
         </View>
       </View>
