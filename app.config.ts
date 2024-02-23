@@ -1,4 +1,4 @@
-import 'ts-node/register'; // Add this to import TypeScript files
+import 'ts-node/register';
 import { ExpoConfig } from 'expo/config';
 
 const config: ExpoConfig = {

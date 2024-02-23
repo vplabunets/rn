@@ -20,10 +20,10 @@ interface CakesScreenProps {
 
 function CakesScreen({ navigation }: CakesScreenProps) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [filteredItems, setFilteredItems] = useState(itemsData.filter(item => item.productType === 'coffee'));
+  const [filteredItems, setFilteredItems] = useState(itemsData.filter(item => item.productType === 'cake'));
 
   useEffect(() => {
-    setFilteredItems(itemsData.filter(item => item.productType === 'tea'));
+    setFilteredItems(itemsData.filter(item => item.productType === 'cake'));
   }, [itemsData]);
 
   const onPressItem = (item: Item) => {

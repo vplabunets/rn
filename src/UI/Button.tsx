@@ -17,8 +17,6 @@ export default Button;
 
 const styles = StyleSheet.create({
   button: {
-    // height: 32,
-    // width: 32,
     padding: 14,
     backgroundColor: GlobalStyles.colors.accentColor,
     elevation: 2,

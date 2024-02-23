@@ -5,9 +5,9 @@ import { GlobalStyles } from '@/constants/styles';
 import Star from '../../UI/Star';
 
 import { NavigationProp, RouteProp } from '@react-navigation/native';
-import { RootState } from '@/redux/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToFavorites, removeFromFavorites } from '@/redux/favorites/favoritesSlice';
+import { RootState, useAppDispatch } from '@/store/store';
+import { useSelector } from 'react-redux';
+import { addToFavorites, removeFromFavorites } from '@/store/favorites/favoritesSlice';
 import { RootStackParamList } from '@/types/types';
 
 import { convertToUSD } from '@/helpers';
@@ -25,7 +25,7 @@ const TeaInfo: React.FC<TeaInfoProps> = ({ route }) => {
   const [favorites, setFavorites] = useState<number[]>([]);
 
   const favoritesArray = useSelector((state: RootState) => state.favorites);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setFavorites(favoritesArray);
@@ -77,7 +77,6 @@ const TeaInfo: React.FC<TeaInfoProps> = ({ route }) => {
           <Button
             color={GlobalStyles.colors.accentColor}
             onPress={() => console.log('hello')}
-            // onPress={() => navigation.goBack()}
             title="Add to Chart"
           ></Button>
         </View>

@@ -7,11 +7,11 @@ import Star from '../../UI/Star';
 
 import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '@/types/types';
-import { useDispatch, useSelector } from 'react-redux';
-import { addProduct } from '@/redux/cart/cartReducer';
-import { RootState } from '@/redux/store';
+import { useSelector } from 'react-redux';
+import { addProduct } from '@/store/cart/cartReducer';
+import { RootState, useAppDispatch } from '@/store/store';
 import { convertToUSD } from '@/helpers';
-import { addToFavorites, removeFromFavorites } from '@/redux/favorites/favoritesSlice';
+import { addToFavorites, removeFromFavorites } from '@/store/favorites/favoritesSlice';
 
 type CakeInfoNavigationProp = NavigationProp<RootStackParamList, 'CakeInfo'>;
 type CakeInfoRouteProp = RouteProp<RootStackParamList, 'CakeInfo'>;
@@ -23,10 +23,9 @@ type CakeInfoProps = {
 
 const CakeInfo: React.FC<CakeInfoProps> = ({ navigation, route }) => {
   const { feature, url, rating, title, price, fullDescription, id, composition } = route.params.item;
-
   const [favorites, setFavorites] = useState<number[]>([]);
   const favoritesArray = useSelector((state: RootState) => state.favorites);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setFavorites(favoritesArray);
@@ -82,15 +81,9 @@ const CakeInfo: React.FC<CakeInfoProps> = ({ navigation, route }) => {
           <Button
             color={GlobalStyles.colors.accentColor}
             onPress={() => handleAddToCart()}
-            // onPress={() => navigation.goBack()}
             title="Add to Chart"
           ></Button>
-          <Button
-            color={GlobalStyles.colors.accentColor}
-            // onPress={() => console.log('hello')}
-            onPress={() => navigation.goBack()}
-            title="go back"
-          ></Button>
+          <Button color={GlobalStyles.colors.accentColor} title="go back"></Button>
         </View>
       </View>
     </View>

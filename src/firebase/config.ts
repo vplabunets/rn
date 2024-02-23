@@ -6,7 +6,7 @@ import { getFirestore } from 'firebase/firestore';
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBZLOYR1A7VXYdrxVjfKCFZaD5YNxdrP-k',
+  apiKey: process.env.EXPO_PUBLIC_API_KEY,
   authDomain: 'emisolo.firebaseapp.com',
   projectId: 'emisolo',
   storageBucket: 'emisolo.appspot.com',
@@ -14,10 +14,8 @@ const firebaseConfig = {
   appId: '1:973870389443:web:e0c4e2651f669c5e7b6a76',
 };
 
-// Ініціалізуємо додаток Firebase
 const app = initializeApp(firebaseConfig);
 
-// Ініціалізуємо Firebase Auth і передаємо його у файл authActions.js
 export const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(ReactNativeAsyncStorage),
 });

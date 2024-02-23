@@ -10,23 +10,24 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
 import { NavigationProp } from '@react-navigation/native';
 
 import { GlobalStyles } from '@/constants/styles';
 import Layout from '@/UI/Layout';
-import { authSignInUser } from '@/redux/auth/authOperations';
+import { authSignInUser } from '@/store/auth/authOperations';
+import { useAppDispatch } from '@/store/store';
 
 interface RegistrationScreenProps {
   navigation: NavigationProp<any>;
 }
 
 const initialState = { email: '', password: '' };
+
 function LoginScreen({ navigation }: RegistrationScreenProps) {
   const [isShown, setIsShown] = useState(false);
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
   const [user, setUser] = useState(initialState);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   function handleIsShown() {
     setIsShown(!isShown);

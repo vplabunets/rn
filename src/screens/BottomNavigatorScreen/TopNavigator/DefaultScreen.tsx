@@ -22,18 +22,14 @@ function DefaultScreen({ navigation }: DefaultScreenProps) {
   const [filteredItems, setFilteredItems] = useState(itemsData.filter(item => item.productType === 'coffee'));
 
   useEffect(() => {
-    setFilteredItems(itemsData.filter(item => item.productType === 'tea'));
+    setFilteredItems(itemsData.filter(item => item.productType === 'coffee'));
   }, [itemsData]);
 
   const onPressItem = (item: Item) => {
     navigation.navigate('CakeInfo', { item });
   };
   const handleRefresh = () => {
-    // setRefreshing(true);
-    // setTimeout(() => {
-    //   setItems(prevItems => [...prevItems, ...itemsData.filter(item => item.productType === 'tea')]);
-    //   setRefreshing(false);
-    // }, 1000);
+    console.log('handleRefresh');
   };
 
   function handleFilteredItems(query: string, isChecked: boolean): void {

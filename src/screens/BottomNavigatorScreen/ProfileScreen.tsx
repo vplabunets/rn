@@ -2,28 +2,22 @@ import React from 'react';
 
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { authSignOutUser } from '@/redux/auth/authOperations';
-import { email, name } from '@/redux/auth/authSelector';
+import { useSelector } from 'react-redux';
+import { authSignOutUser } from '@/store/auth/authOperations';
+import { email, name } from '@/store/auth/authSelector';
 
 import { GlobalStyles } from '@/constants/styles';
 
 import { Ionicons } from '@expo/vector-icons';
 import IconButton from '@/UI/IconButton';
+import { useAppDispatch } from '@/store/store';
 
 const ProfileScreen = () => {
   const userName = useSelector(name);
   const userEmail = useSelector(email);
-  const dispatch = useDispatch();
-  console.log(userName);
-
-  // function handleLogOut() {
-  //   console.log('logout');
-  //   dispatch(authSignOutUser());
-  // }
+  const dispatch = useAppDispatch();
 
   function handleLogOut() {
-    console.log('logout');
     dispatch(authSignOutUser());
   }
 

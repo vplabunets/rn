@@ -12,8 +12,8 @@ import MyOrdersScreen from '@/screens/BottomNavigatorScreen/MyOrdersScreen';
 import { TopNavigator } from '@/screens/BottomNavigatorScreen/TopNavigator/TopNavigatorScreen';
 
 import IconButton from '@/UI/IconButton';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCart } from '@/redux/cart/cartSelectors';
+import { useSelector } from 'react-redux';
+import { getCart } from '@/store/cart/cartSelectors';
 
 const BottomTab = createBottomTabNavigator();
 

@@ -5,18 +5,18 @@ import Star from '../UI/Star';
 import IconButton from '@/UI/IconButton';
 
 import { Item } from '@/types/types';
-import { RootState } from '@/redux/store';
+import { RootState, useAppDispatch } from '@/store/store';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { addProduct } from '@/redux/cart/cartReducer';
-import { addToFavorites, removeFromFavorites } from '@/redux/favorites/favoritesSlice';
+import { useSelector } from 'react-redux';
+import { addProduct } from '@/store/cart/cartReducer';
+import { addToFavorites, removeFromFavorites } from '@/store/favorites/favoritesSlice';
 import { convertToUSD } from '@/helpers';
 
 function PressableCard({ item, onPress }: { item: Item; onPress: (xxx: Item) => void }): React.JSX.Element {
   const [favorites, setFavorites] = useState<number[]>([]);
 
   const favoritesArray = useSelector((state: RootState) => state.favorites);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { title, description, price, rating, url, feature, id } = item;
 
   useEffect(() => {

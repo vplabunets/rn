@@ -63,7 +63,6 @@ export const authStateChangeUser = () => async (dispatch: AppDispatch) => {
       dispatch(authSlice.actions.authStateChange({ stateChange: true }));
     } else {
       // User is signed out
-      // ...
     }
   });
 };
