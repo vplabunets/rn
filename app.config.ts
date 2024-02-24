@@ -5,11 +5,11 @@ const config: ExpoConfig = {
   name: 'rn',
   slug: 'rn',
   version: '1.0.0',
-  orientation: 'portrait',
-  icon: './assets/icon.png',
+  orientation: 'default',
+  icon: './src/assets/coffee-icon.png',
   userInterfaceStyle: 'light',
   splash: {
-    image: './assets/coffee-cup.png',
+    image: './src/assets/coffee-cup.png',
     resizeMode: 'contain',
     backgroundColor: '#ffffff',
   },
@@ -20,16 +20,22 @@ const config: ExpoConfig = {
     jsEngine: 'jsc',
   },
   android: {
+    package: 'com.vplabunets.rn',
     adaptiveIcon: {
-      foregroundImage: './assets/adaptive-icon.png',
+      foregroundImage: './src/assets/coffee-cup.png',
       backgroundColor: '#ffffff',
     },
   },
   web: {
-    favicon: './assets/favicon.png',
+    favicon: './src/assets/bean.png',
   },
   experiments: {
     tsconfigPaths: true,
+  },
+  extra: {
+    eas: {
+      projectId: '1e53cfd9-9ae7-407f-a946-6abed4ab6d1d',
+    },
   },
 };
 
