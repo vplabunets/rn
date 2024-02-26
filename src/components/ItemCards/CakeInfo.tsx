@@ -83,7 +83,7 @@ const CakeInfo: React.FC<CakeInfoProps> = ({ navigation, route }) => {
             onPress={() => handleAddToCart()}
             title="Add to Chart"
           ></Button>
-          <Button color={GlobalStyles.colors.accentColor} title="go back"></Button>
+          <Button color={GlobalStyles.colors.accentColor} title="Go back" onPress={() => navigation.goBack()}></Button>
         </View>
       </View>
     </View>

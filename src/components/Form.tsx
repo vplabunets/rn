@@ -46,7 +46,7 @@ const Form: React.FC<FormProps> = ({ handleModal, modalVisible, handleFilteredIt
         </View>
       )}
       <View style={styles.buttonsContainer}>
-        <IconButton icon="heart" color={GlobalStyles.colors.accentColor} onPress={handleModalVisible} />
+        <IconButton icon="star" color={GlobalStyles.colors.accentColor} onPress={handleModalVisible} />
 
         <IconButton icon="search-sharp" onPress={handleIsShownInput} color={GlobalStyles.colors.mainTextColor} />
       </View>

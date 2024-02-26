@@ -6,7 +6,6 @@ const useApi = (url: string) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  AbortController;
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;

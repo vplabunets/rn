@@ -1,20 +1,28 @@
-import React from 'react';
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-  TouchableWithoutFeedback,
-} from 'react-native';
-import { ModalProps } from '@/types/types';
+import React, { useEffect, useState } from 'react';
+import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableWithoutFeedback } from 'react-native';
+import { Item, ModalProps } from '@/types/types';
 import { GlobalStyles } from '@/constants/styles';
+import { RootState, useAppDispatch } from '@/store/store';
+import { useSelector } from 'react-redux';
+import CardsList from './CardsList';
+import { itemsData } from '@/data/data';
 
 const ModalWindow: React.FC<ModalProps> = ({ handleModal, modalVisible }) => {
+  const [favorites, setFavorites] = useState<Item[]>([]);
+
   const closeModal = () => {
     handleModal(!modalVisible);
   };
+
+  const favoritesArray = useSelector((state: RootState) => state.favorites);
+  const fav: any[] = [];
+
+  useEffect(() => {
+    favoritesArray.forEach(element => {
+      fav.push(itemsData.find(item => item.id === element));
+    });
+    setFavorites(fav);
+  }, [favoritesArray]);
 
   return (
     <View style={styles.modalContainer}>
@@ -30,13 +38,9 @@ const ModalWindow: React.FC<ModalProps> = ({ handleModal, modalVisible }) => {
         <TouchableWithoutFeedback onPress={closeModal}>
           <View style={styles.modalContainer}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>
-                Here should be some interesting information
-              </Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => handleModal(!modalVisible)}
-              >
+              <Text style={styles.modalText}>Your favorites</Text>
+              <CardsList items={favorites} refreshing={false} handleRefresh={() => {}} onPressItem={() => {}} />
+              <Pressable style={[styles.button, styles.buttonClose]} onPress={() => handleModal(!modalVisible)}>
                 <Text style={styles.textStyle}>Hide Modal</Text>
               </Pressable>
             </View>
@@ -50,6 +54,7 @@ const ModalWindow: React.FC<ModalProps> = ({ handleModal, modalVisible }) => {
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
+    paddingTop: 40,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: GlobalStyles.colors.secondaryTextColor,
@@ -57,7 +62,8 @@ const styles = StyleSheet.create({
   },
   modalView: {
     backgroundColor: GlobalStyles.colors.lightAccentColor,
-    padding: 35,
+
+    padding: 10,
     alignItems: 'center',
     opacity: 1,
     borderRadius: 12,
@@ -84,8 +90,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
-    marginBottom: 15,
+    marginVertical: 20,
     textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: GlobalStyles.colors.accentColor,
   },
 });
 
